@@ -6,6 +6,8 @@ into python and RunwayML.
 It allows for a server to be spun up in a docker container that performs real-
 time gaze estimation from a video stream.  It works with any webcam.
 
+I have used this model successfully in my project [Presence](http://www.danioved.com/portfolio/presence/) - a kinetic sculpture that reacts to a users gaze.
+
 ### The server:
 
 Install Docker.
