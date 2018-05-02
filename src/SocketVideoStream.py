@@ -44,10 +44,12 @@ class SocketVideoStream:
             # print("receiving json")
             sockets = dict(self.poller.poll())
             if self.socket in sockets:
-                msg = self.socket.recv_json(flags=0)
-                data = self.socket.recv(flags=0, copy=True, track=False)
-                A = np.frombuffer(data, msg['dtype'])
-                self.frame = A.reshape(msg['shape'])
+                msg = self.socket.recv()
+                print("message", msg)
+                # msg = self.socket.recv_json(flags=0)
+                # data = self.socket.recv(flags=0, copy=True, track=False)
+                # A = np.frombuffer(data, msg['dtype'])
+                # self.frame = A.reshape(msg['shape'])
                 # _=  self.socket.recv(flags=0, copy=True, track=False)
         # # except KeyboardInterrupt:
         #     #     print("W: interrupt received, stopping...")

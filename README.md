@@ -5,6 +5,34 @@ Presence is a kinetic sculpture that detects a viewer's gaze in real-time using 
 It uses a webcam and the pre-trained model from [Eye Tracking for Everyone](http://gazecapture.csail.mit.edu/) to detect
 where users are gazing, and moves in the direction of the gaze.
 
+## Setup
+
+### The server:
+
+Install Docker.
+
+Build the docker container in a tag:
+
+    docker build . -t gaze
+
+Launch the container:
+
+    ./start_container.sh
+
+
+### The client:
+
+The client opens a webcam video feed and sends it in a stream to the server, getting gaze positions back.
+
+Install dependencies:
+
+    pip install opencv-python zmq
+        
+Launch the client:
+
+    python test_client.py
+
+
 ## Key files/documentation
 
 **Full documentation coming soon**
