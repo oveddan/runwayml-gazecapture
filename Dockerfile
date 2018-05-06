@@ -25,7 +25,6 @@ ADD requirements.txt requirements.txt
 
 RUN pip install -r requirements.txt
 
-EXPOSE 5555 
-EXPOSE 5556
+EXPOSE 33000
 
 ENTRYPOINT python ./src/server.py
