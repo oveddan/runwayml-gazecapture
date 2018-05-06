@@ -16,7 +16,7 @@ import gaze
 # This should remain unchanged for the most part
 # ---
 
-PORT = 33200 # as a standard, port 33000 should be exposed in all docker containers
+PORT = 5555# as a standard, port 33000 should be exposed in all docker containers
 app = Flask(__name__)
 CORS(app)
 socketio = SocketIO(app)
@@ -28,7 +28,8 @@ def stringToImage(base64_string):
 
 # Convert PIL Image to an RGB image(technically a numpy array) that's compatible with opencv
 def main(input_img):
-  bgr_image = stringToImage(input_img[input_img.find(",")+1:])
+  pil_image = stringToImage(input_img[input_img.find(",")+1:])
+  bgr_image = np.array(pil_image)
   img, faces, face_features = features.extract_image_features(bgr_image)
   estimated_gazes = gaze.test_faces(img, faces, face_features)
 

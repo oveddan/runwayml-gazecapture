@@ -1,1 +1,1 @@
-docker run -p 5555:5555 -p 5556:5556 -v /Users/danoved/Source/ITP/fall-2017/gaze/src:/root/src/ gaze
+docker run -it -d=false -p 5555:5555 -p 5556:5556 -v $PWD/src:/root/src/ gaze

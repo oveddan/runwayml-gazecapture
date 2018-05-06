@@ -1,6 +1,5 @@
 FROM bvlc/caffe:cpu
 
-
 WORKDIR /root
 
 # download 
@@ -29,4 +28,4 @@ RUN pip install -r requirements.txt
 EXPOSE 5555 
 EXPOSE 5556
 
-ENTRYPOINT python ./src/stream_server.py
+ENTRYPOINT python ./src/server.py
