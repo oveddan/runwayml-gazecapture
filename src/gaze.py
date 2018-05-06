@@ -1,5 +1,7 @@
 import sys
+import os
 sys.path.append('/usr/bin/caffe')
+os.environ['GLOG_minloglevel'] = '2'
 import caffe
 import numpy as np
 from lib import current_time, crop_image

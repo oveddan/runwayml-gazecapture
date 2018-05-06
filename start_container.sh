@@ -1,1 +1,1 @@
-docker run -it -d=false -p 5555:5555 -p 5556:5556 -v $PWD/src:/root/src/ gaze
+docker run -it -d=false --rm -p 33000:33000 -v $PWD/src:/root/src/ gaze

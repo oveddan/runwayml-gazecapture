@@ -16,7 +16,7 @@ import gaze
 # This should remain unchanged for the most part
 # ---
 
-PORT = 5555# as a standard, port 33000 should be exposed in all docker containers
+PORT = 33000 # as a standard, port 33000 should be exposed in all docker containers
 app = Flask(__name__)
 CORS(app)
 socketio = SocketIO(app)
@@ -33,12 +33,15 @@ def main(input_img):
   img, faces, face_features = features.extract_image_features(bgr_image)
   estimated_gazes = gaze.test_faces(img, faces, face_features)
 
-  parsed_results = ({
-    "estimated_gazes": estimated_gazes
-  })
-     
-  return parsed_results
+  results = []
+  for gaze_detected in estimated_gazes:
+    results.append(gaze_detected.tolist())
 
+  parsed_results = {
+    "estimated_gazes": results
+  }
+
+  return parsed_results
 
 # Base route, functions a simple testing
 @app.route('/')
